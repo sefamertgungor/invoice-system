@@ -32,7 +32,21 @@ yeterli.
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
   ```
-  {"name":"Seda", "surname":"Kul"}
+  {"name":"Sefa Mert", "surname":"Gungor"}
+  ```
+  
+  ```diff
+  ! Response
+  {
+    "Status": 200,
+    "Message": "User created with entered user information.",
+    "Customer": {
+        "subscriberId": 10,
+        "name": "Sefa Mert",
+        "surname": "Gungor",
+        "subscriberNo": 10
+    }
+}
   ```
   - http://localhost:8080/v1/users/get -> Brings all customers registered in the system. Return customer list, HttpStatus, message as reponse.
   - http://localhost:8080/v1/users/get/{subscriberId} -> Brings the desired customer with subscriberId. Return customer, HttpStatus and message as response.
