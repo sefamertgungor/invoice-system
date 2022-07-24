@@ -39,6 +39,7 @@ yeterli.
   - http://localhost:8080/v1/invoice/get -> Brings all invoices registered in the system.
   - http://localhost:8080/v1/invoice/get/{invoiceNo} -> Brings the desired invoice with invoiceNo.
   - http://localhost:8080/v1/invoice/delete/{invoiceNo} -> Deletes the desired customer with invoiceNo.
-  - http://localhost:8080/v1/invoice/invoiceInquiry/{invoiceNo} -> Performs invoice inquiry with invoiceNo.
+  - http://localhost:8080/v1/invoice/invoiceInquiry/{invoiceNo} -> Performs invoice payment inquiry with invoiceNo.
+  - http://localhost:8080/v1/payment/invoiceInquiry/{subscribeNo} -> Performs invoice payment inquiry with subscribeNo.
   
 </details>
