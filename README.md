@@ -31,6 +31,9 @@ yeterli.
   <summary>Rest API Açıklamaları</summary>
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
+  ```
+  {"name":"Seda", "surname":"Kul"}
+  ```
   - http://localhost:8080/v1/users/get -> Brings all customers registered in the system. Return customer list, HttpStatus, message as reponse.
   - http://localhost:8080/v1/users/get/{subscriberId} -> Brings the desired customer with subscriberId. Return customer, HttpStatus and message as response.
   - http://localhost:8080/v1/users/delete/{subscriberId} -> Deletes the desired customer with subscriberId. Return deleted customer, Httpstatus and message as response.
