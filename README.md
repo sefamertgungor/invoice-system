@@ -31,7 +31,7 @@ yeterli.
   <summary>Rest API Açıklamaları</summary>
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
-  ```
+  ```diff
   ! Request
   {"name":"Sefa Mert", "surname":"Gungor"}
   ```
@@ -50,6 +50,27 @@ yeterli.
 }
   ```
   - http://localhost:8080/v1/users/get -> Brings all customers registered in the system. Return customer list, HttpStatus, message as reponse.
+   ```diff
+  + Response
+  {
+    "Status": 200,
+    "Message": "Customer list brought.",
+    "Customer": [
+        {
+            "subscriberId": 1,
+            "name": "Sefa",
+            "surname": "Gungor",
+            "subscriberNo": 1
+        },
+        {
+            "subscriberId": 2,
+            "name": "Mert",
+            "surname": "Gungor",
+            "subscriberNo": 2
+        }
+    ]
+}
+  ```
   - http://localhost:8080/v1/users/get/{subscriberId} -> Brings the desired customer with subscriberId. Return customer, HttpStatus and message as response.
   - http://localhost:8080/v1/users/delete/{subscriberId} -> Deletes the desired customer with subscriberId. Return deleted customer, Httpstatus and message as response.
   - http://localhost:8080/v1/users/update/{subscriberId}?surname=&name= -> Updates the desired customer. (name and surname @RequestParam)
