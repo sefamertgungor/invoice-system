@@ -31,7 +31,7 @@ yeterli.
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
   ```diff
-  ! Request
+  ! Body JSON
   {"name":"Sefa Mert", "surname":"Gungor"}
   ```
   
@@ -114,7 +114,7 @@ yeterli.
   ```
   - http://localhost:8080/v1/invoice/save -> It is used in the invoice registration section of the system. subscriberNo and invoiceAmount fields should not be blank. Necessary validation procedures have been carried out.
   ```diff
-  ! Request
+  ! Body JSON
   {"subscriberNo":"2", "invoiceAmount":"896"}
   ```
   ```diff
