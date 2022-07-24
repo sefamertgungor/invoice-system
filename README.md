@@ -32,11 +32,12 @@ yeterli.
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
   ```
+  ! Request
   {"name":"Sefa Mert", "surname":"Gungor"}
   ```
   
   ```diff
-  ! Response
+  + Response
   {
     "Status": 200,
     "Message": "User created with entered user information.",
