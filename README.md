@@ -31,15 +31,15 @@ yeterli.
   <summary>Rest API Açıklamaları</summary>
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
-  - http://localhost:8080/v1/users/get -> Brings all customers registered in the system.
-  - http://localhost:8080/v1/users/get/{subscriberId} -> Brings the desired customer with subscriberId.
-  - http://localhost:8080/v1/users/delete/{subscriberId} -> Deletes the desired customer with subscriberId.
+  - http://localhost:8080/v1/users/get -> Brings all customers registered in the system. Return customer list, HttpStatus, message as reponse.
+  - http://localhost:8080/v1/users/get/{subscriberId} -> Brings the desired customer with subscriberId. Return customer, HttpStatus and message as response.
+  - http://localhost:8080/v1/users/delete/{subscriberId} -> Deletes the desired customer with subscriberId. Return deleted customer, Httpstatus and message as response.
   - http://localhost:8080/v1/users/update/{subscriberId}?surname=&name= -> Updates the desired customer. (name and surname @RequestParam)
   - http://localhost:8080/v1/invoice/save -> It is used in the invoice registration section of the system. subscriberNo and invoiceAmount fields should not be blank. Necessary validation procedures have been carried out.
-  - http://localhost:8080/v1/invoice/get -> Brings all invoices registered in the system.
-  - http://localhost:8080/v1/invoice/get/{invoiceNo} -> Brings the desired invoice with invoiceNo.
-  - http://localhost:8080/v1/invoice/delete/{invoiceNo} -> Deletes the desired customer with invoiceNo.
-  - http://localhost:8080/v1/invoice/invoiceInquiry/{invoiceNo} -> Performs invoice payment inquiry with invoiceNo.
-  - http://localhost:8080/v1/payment/invoiceInquiry/{subscribeNo} -> Performs invoice payment inquiry with subscribeNo.
+  - http://localhost:8080/v1/invoice/get -> Brings all invoices registered in the system. Return invoice list, HttpStatus, message as reponse.
+  - http://localhost:8080/v1/invoice/get/{invoiceNo} -> Brings the desired invoice with invoiceNo. Return invoice, HttpStatus and message as response.
+  - http://localhost:8080/v1/invoice/delete/{invoiceNo} -> Deletes the desired customer with invoiceNo. Return deleted invoice, Httpstatus and message as response.
+  - http://localhost:8080/v1/invoice/invoiceInquiry/{invoiceNo} -> Performs invoice payment inquiry with invoiceNo. If status equals 1 invoice paid, if status equals zero invoice not paid. 
+  - http://localhost:8080/v1/payment/invoiceInquiry/{subscribeNo} -> Performs invoice payment inquiry with subscribeNo. If such a record exists, there is no unpaid invoice for the user.
   
 </details>
