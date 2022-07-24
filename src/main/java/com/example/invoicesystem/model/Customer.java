@@ -1,5 +1,6 @@
 package com.example.invoicesystem.model;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,7 +16,9 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subscriberId;
+    @NotNull
     private String name;
+    @NotNull
     private String surname;
 
     public Customer() {}

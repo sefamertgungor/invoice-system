@@ -30,6 +30,7 @@ public class InvoiceService {
         this.customerRepository = customerRepository;
     }
 
+    //Service for fetching invoice list
     public ResponseEntity<?> getAllInvoices() {
         if (this.invoiceRepository.findAll() == null || this.invoiceRepository.findAll().isEmpty()){
             return InvoiceResponseHandler.generateResponseNot(
@@ -45,6 +46,22 @@ public class InvoiceService {
         }
     }
 
+    //Service for fetching invoice list
+    public ResponseEntity<?> getInvoice(Long invoiceNo) {
+        if (this.invoiceRepository.findById(invoiceNo).equals(Optional.empty())) {
+            return InvoiceResponseHandler.generateResponseNot(
+                    "No Invoice Found With This Invoice Number.",
+                    HttpStatus.OK);
+        } else {
+            Invoice invoice = this.invoiceRepository.findById(invoiceNo).orElseThrow(()->new EntityNotFoundException("Invoice Not Found"));
+            return InvoiceResponseHandler.generateResponse(
+                    "Invoice Brought",
+                    HttpStatus.OK,
+                    invoice);
+        }
+    }
+
+    //Service that registers the invoice in the system
     public ResponseEntity<Object> createInvoice(Invoice invoice) {
 
         if (invoice != null) {
@@ -108,10 +125,11 @@ public class InvoiceService {
         }
     }
 
+    //Service for invoice information deletion
     public ResponseEntity<Object> deleteInvoice(Long invoiceNo) {
         if (this.invoiceRepository.findById(invoiceNo).equals(Optional.empty())) {
             return InvoiceResponseHandler.generateResponseNot(
-                    "No User Found With This invoice number.",
+                    "No Invoice Found With This Invoice Number.",
                     HttpStatus.OK);
         } else {
             Invoice invoiceToBeDeleted = this.invoiceRepository.findById(invoiceNo).orElseThrow(()->new EntityNotFoundException("Invoice Not Found"));
@@ -123,6 +141,7 @@ public class InvoiceService {
         }
     }
 
+    //Billing service
     public ResponseEntity<Object> invoiceInquiry(Long invoiceNo) {
 
         Invoice invoice = this.invoiceRepository.findById(invoiceNo).orElseThrow(()->new EntityNotFoundException("Invoice Not Found"));

@@ -21,25 +21,31 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    //fetching customer list
+    //for fetching customer list
     @GetMapping("/get")
-    public ResponseEntity<?> getCustomer() {
+    public ResponseEntity<?> getCustomers() {
         return this.customerService.getCustomers();
     }
 
-    //The customer is registered in the system.
+    //for fetching customer list
+    @GetMapping("/get/{subscriberId}")
+    public ResponseEntity<?> getCustomer(@PathVariable Long subscriberId) {
+        return this.customerService.getCustomer(subscriberId);
+    }
+
+    //that registers the customer in the system
     @PostMapping("/save")
     public ResponseEntity<?> addCustomer(@RequestBody Customer customer) {
         return this.customerService.createCustomer(customer);
     }
 
-    //Service available for customer information deletion
+    //for customer information deletion
     @DeleteMapping("/delete/{subscriberId}")
     public ResponseEntity<?> deleteCustomer(@PathVariable Long subscriberId) {
         return this.customerService.deleteCustomer(subscriberId);
     }
 
-    //Updating customer information
+    //Update the customer
     @PutMapping("/update/{subscriberId}")
     public ResponseEntity<?> updateCustomer(@RequestParam(required = false) String name,
                                             @RequestParam(required = false) String surname,

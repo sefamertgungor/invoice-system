@@ -20,6 +20,7 @@ public class PaymentService {
         this.paymentRepository = paymentRepository;
     }
 
+    //Performs querying based on subscriberNo.
     public ResponseEntity<Object> invoiceInquiry(Long subscriberId) {
         List<Payment> payments = this.paymentRepository.findBySubscriberNo(subscriberId);
         if (payments.size()>0) {

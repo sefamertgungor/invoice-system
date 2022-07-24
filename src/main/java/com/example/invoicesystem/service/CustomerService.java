@@ -24,6 +24,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
+    //Service for fetching customer list
     public ResponseEntity<?> getCustomers(){
         if (this.customerRepository.findAll()==null || this.customerRepository.findAll().isEmpty()) {
             return CustomerResponseHandler.generateResponseNot(
@@ -39,6 +40,22 @@ public class CustomerService {
         }
     }
 
+    //Service for fetching customer list
+    public ResponseEntity<?> getCustomer(Long subscriberId) {
+        if (this.customerRepository.findById(subscriberId).equals(Optional.empty())) {
+            return CustomerResponseHandler.generateResponseNot(
+                    "No customer associated with this subscriberID!",
+                    HttpStatus.OK);
+        } else {
+            Customer customer = this.customerRepository.findById(subscriberId).orElseThrow(()->new EntityNotFoundException("Customer Not Found"));
+            return CustomerResponseHandler.generateResponse(
+                    "Customer brought.",
+                    HttpStatus.OK,
+                    customer);
+        }
+    }
+
+    //Service that registers the customer in the system
     public ResponseEntity<Object> createCustomer(Customer customer) {
 
         if (customer != null) {
@@ -77,6 +94,7 @@ public class CustomerService {
 
     }
 
+    //Service for customer information deletion
     public ResponseEntity<Object> deleteCustomer(Long subscriberId) {
 
         if (this.customerRepository.findById(subscriberId).equals(Optional.empty())) {
@@ -94,6 +112,7 @@ public class CustomerService {
 
     }
 
+    //Service to update the customer
     @Transactional
     public ResponseEntity<Object> customerUpdate(String name, String surname, Long subscriberNo) {
         Customer customerToUpdate = this.customerRepository.findById(subscriberNo).orElseThrow(()->new EntityNotFoundException("Customer Not Found"));
@@ -109,7 +128,7 @@ public class CustomerService {
             validateControl = false;
         }
 
-        if (validateControl) {
+        if (!validateControl) {
             return CustomerResponseHandler.generateResponse(
                     "Customer information updated.",
                     HttpStatus.OK,
