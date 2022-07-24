@@ -1,8 +1,8 @@
-# Bitirme Projesi
+# invoice-system
 
 
 <details>
-  <summary>Proje Gereksinimleri</summary>
+  <summary>Project Requirements</summary>
 
 - Bir müşteri bilgisi alıp kayıt eden, bir fatura bilgisi kayıt eden ve bu bilgileri sorgulayan restApi ler olacak.
   
@@ -27,7 +27,7 @@ yeterli.
   Servisler ResponseEntity tipinde cevap dönmeli.
 </details>
 
-## Rest API Açıklamaları
+## Rest API Description
   
   - http://localhost:8080/v1/users/save -> It is used in the customer registration section of the system. Name and surname fields should not be blank. Necessary validation procedures have been carried out. 
   ```diff
